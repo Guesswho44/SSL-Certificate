@@ -31,21 +31,21 @@ sudo apt install socat -y
 }
 certificate() {
 mkdir /root/.acme.sh
-mkdir /etc/ilyass
-rm /etc/ilyass/ilyass.crt
-rm /etc/ilyass/ilyass.key
+mkdir /etc/xray/
+rm /etc/xray/xray.crt
+rm /etc/xray/xray.key
 #curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 curl https://raw.githubusercontent.com/acmesh-official/acme.sh/refs/heads/master/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/ilyass/ilyass.crt --keypath /etc/ilyass/ilyass.key --ecc
+~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
 }
 scoat
 certificate
-echo -e "${BIPurple}   Certificate Path: ${BIWhite}/etc/ilyass/ilyass.crt"
-echo -e "${BIPurple}   Key Path        : ${BIWhite}/etc/ilyass/ilyass.key"
+echo -e "${BIPurple}   Certificate Path: ${BIWhite}/etc/xray/xray.crt"
+echo -e "${BIPurple}   Key Path        : ${BIWhite}/etc/xray/xray.key"
 
 echo -e " ${BICyan}└─────────────────────────────────────────────────────┘${NC}"
 echo "   Don't forget to renew cert"
