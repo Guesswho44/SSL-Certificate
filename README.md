@@ -1,1 +1,1 @@
-wget https://github.com/FasterExE/SSL-Certificate/raw/main/certificate.sh; bash certificate.sh
+wget https://raw.githubusercontent.com/Guesswho44/SSL-Certificate/main/certificate.sh; bash certificate.sh
